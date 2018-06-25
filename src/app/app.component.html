@@ -1,0 +1,163 @@
+<div>
+  <div class="container-fluide w-100">
+  </div>
+  <header class="h-100">
+    <mdb-navbar SideClass="navbar fixed-top navbar-expand-lg navbar-dark unique-color-dark scrolling-navbar intro-fixed-nav"
+      [containerInside]="false">
+      <logo>
+        <a class="logo navbar-brand" href="#">
+          <strong>{{data.menu.title}}</strong>
+        </a>
+      </logo>
+      <!--<div class="collapse navbar-collapse" id="navbarSupportedContent">-->
+      <links>
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item waves-light" *ngFor="let link of data.menu.links" mdbWavesEffect>
+            <a class="nav-link" href="{{link.href}}">{{link.label}}</a>
+          </li>
+        </ul>
+        <form class="form-inline ml-auto" *ngIf="data.menu.search.isVisible">
+          <div class="md-form mt-0">
+            <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+          </div>
+        </form>
+        <button class="btn btn-outline-white btn-md my-0 ml-sm-2 float-right" *ngIf="data.menu.login.isVisible"> Login</button>
+      </links>
+      <!--</div>-->
+    </mdb-navbar>
+    <div class="container-fluide">
+      <!--Carousel Wrapper-->
+      <mdb-carousel [isControls]="true" class="carousel slide carousel-fade" [animation]="'fade'">
+        <!--First slide-->
+        <ng-container *ngFor="let slide of data.slider.items">
+          <mdb-slide>
+            <div class="view w-100">
+              <img class="d-block w-100" [src]="slide.url" alt="First slide">
+              <div class="mask rgba-black-light waves-light" mdbWavesEffect></div>
+            </div>
+            <div class="carousel-caption">
+              <h3 class="h3-responsive">{{slide.title}}</h3>
+              <p>{{slide.subTitle}}</p>
+            </div>
+          </mdb-slide>
+        </ng-container>
+        <!--/Third slide-->
+      </mdb-carousel>
+      <!--/.Carousel Wrapper-->
+    </div>
+  </header>
+  <div class="container">
+    <!-- Projects section v.1 -->
+    <section class="text-center my-5">
+
+      <!-- Section heading -->
+      <h2 class="h1-responsive font-weight-bold my-5">Articles</h2>
+      <!-- Section description -->
+      <!-- Grid row -->
+      <div class="row text-center">
+
+        <!-- Grid column -->
+        <div *ngFor="let project of data.projects" class="col-lg-4 col-md-12 mb-lg-0 mb-4">
+          <!--Featured image-->
+          <div class="view overlay rounded z-depth-1">
+            <img [src]="project.image" class="img-fluid" alt="Sample project image">
+            <a>
+              <div class="mask rgba-white-slight"></div>
+            </a>
+          </div>
+          <!--Excerpt-->
+          <div class="card-body pb-0">
+            <h4 class="font-weight-bold my-3">{{project.title}}</h4>
+            <p class="grey-text">{{project.content}}
+            </p>
+            <a class="btn btn-indigo btn-sm">
+              <i class="fa fa-clone left"></i> Read more..</a>
+          </div>
+        </div>
+        <!-- Grid column -->
+      </div>
+      <!-- Grid row -->
+
+    </section>
+
+    <!-- Projects section v.2 -->
+    <section class="text-center my-5">
+
+      <!-- Section heading -->
+      <h2 class="h1-responsive font-weight-bold my-5">Deals of the day</h2>
+      <!-- Section description -->
+      <!-- Grid row -->
+      <div class="row d-flex justify-content-center">
+
+        <!-- Grid column -->
+        <div *ngFor="let deal of data.deals" class="col-md-6 col-xl-5 mb-4">
+          <!--Featured image-->
+          <div class="view overlay rounded z-depth-2">
+            <img [src]="deal.image" class="img-fluid" alt="Sample project image">
+            <a>
+              <div class="mask rgba-white-slight"></div>
+            </a>
+          </div>
+          <!--Excerpt-->
+          <div class="card-body">
+            <h4 class="font-weight-bold mb-3">{{deal.title}}</h4>
+            <p>{{deal.content}}</p>
+            <a class="btn btn-success btn-rounded btn-md"> View more</a>
+          </div>
+        </div>
+
+      </div>
+      <!-- Grid row -->
+
+    </section>
+    <!-- Projects section v.2 -->
+
+  </div>
+  <!-- Projects section v.1 -->
+  <div class="container-fluide unique-color-dark pt-1">
+    <div class="container text-center text-md-left mt-5">
+      <div class="row mt-3">
+        <!--First column-->
+        <div class="col-md-3 col-lg-4 col-xl-3 mb-4" *ngFor="let footer of data.footers">
+          <h6 class="text-uppercase font-weight-bold white-text">
+            <strong>{{footer.title}}</strong>
+          </h6>
+          <hr class="info-color mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+          <p *ngFor="let item of footer.items" class="white-text">
+            <a href="/faq/">{{item}}</a>
+          </p>
+        </div>
+        <!--/.First column-->
+        <!--/.Third column-->
+        <!--Fourth column-->
+        <div class="col-md-4 col-lg-3 col-xl-3">
+          <h6 class="text-uppercase font-weight-bold white-text">
+            <strong>Company</strong>
+          </h6>
+          <hr class="info-color mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+          <p class="white-text">
+            <a href="/our-team/">
+              <i class="fa fa-envelope mr-3"></i> contact@mdbootstrap.com
+            </a>
+          </p>
+          <!-- <p>
+                <i class="fa fa-building mr-3"></i> Our story</p> -->
+          <p class="white-text">
+            <a href="/our-team/">
+              <i class="fa fa-facebook mr-3"></i> Facebook</a>
+          </p>
+          <p class="white-text">
+            <a href="/contact/">
+              <i class="fa fa-twitter mr-3"></i> Twitter</a>
+          </p>
+          <p class="white-text">
+            <a href="/mdbootstrap-press-pack/">
+              <i class="fa fa-instagram mr-3"></i> Instagram</a>
+          </p>
+        </div>
+        <!--/.Fourth column-->
+      </div>
+    </div>
+  </div>
+
+</div>
